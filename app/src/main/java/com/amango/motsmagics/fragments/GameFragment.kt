@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.amango.motsmagics.Data
+import com.amango.motsmagics.DataWords
 import com.amango.motsmagics.MyAdapter
 import com.amango.motsmagics.R
 import kotlinx.android.synthetic.main.fragment_game.view.*
@@ -16,7 +17,6 @@ import kotlinx.android.synthetic.main.item_mot_magic.view.*
 
 
 class GameFragment : Fragment() {
-
     private lateinit var firstLettre : String
     private lateinit var secondLettre : String
     private lateinit var threeLettre : String
@@ -43,9 +43,7 @@ class GameFragment : Fragment() {
         var itemList_data : ArrayList<Data>
         var wrong : Int = R.drawable.edittext_wrong_letter
         var correct : Int = R.drawable.edittext_correct_letter
-        var ok : Int
 
-        //initialize
         itemList_data = ArrayList(arrayListOf(Data("","","","","")))
         myAdapter = MyAdapter(v.context, R.layout.item_mot_magic, itemList_data)
         itemLigneSelected = 0
@@ -53,10 +51,7 @@ class GameFragment : Fragment() {
         allWordToFind = arrayListOf("")
 
         var getWordToFindFromFireBase = fun(){
-            allWordToFind.add("kokou")
-            allWordToFind.add("kodjo")
-            allWordToFind.add("koffi")
-            allWordToFind.add("kodji",)
+            allWordToFind = DataWords().allWord
             wordToFind = allWordToFind[itemWordSelected]
         }
         getWordToFindFromFireBase()
@@ -105,27 +100,26 @@ class GameFragment : Fragment() {
             v.listView_game[itemLigneSelected].editText_i_1.animate().apply {
                 duration = 700
                 rotationXBy(360f)
-                changeEditTextColor(0,v.listView_game[itemLigneSelected].editText_i_1)
             }.withEndAction{
+                changeEditTextColor(0,v.listView_game[itemLigneSelected].editText_i_1)
                 v.listView_game[itemLigneSelected].editText_i_2.animate().apply {
                     duration = 700
                     rotationXBy(360f)
-                    changeEditTextColor(0,v.listView_game[itemLigneSelected].editText_i_2)
                 }.withEndAction{
+                    changeEditTextColor(0,v.listView_game[itemLigneSelected].editText_i_2)
                     v.listView_game[itemLigneSelected].editText_i_3.animate().apply {
                         duration = 700
                         rotationXBy(360f)
-                        changeEditTextColor(0,v.listView_game[itemLigneSelected].editText_i_3)
                     }.withEndAction {
+                        changeEditTextColor(0,v.listView_game[itemLigneSelected].editText_i_3)
                         v.listView_game[itemLigneSelected].editText_i_4.animate().apply {
                             duration = 700
                             rotationXBy(360f)
-                            changeEditTextColor(0,v.listView_game[itemLigneSelected].editText_i_4)
                         }.withEndAction {
+                            changeEditTextColor(0,v.listView_game[itemLigneSelected].editText_i_4)
                             v.listView_game[itemLigneSelected].editText_i_5.animate().apply {
                                 duration = 700
                                 rotationXBy(360f)
-                                changeEditTextColor(0,v.listView_game[itemLigneSelected].editText_i_4)
                             }.withEndAction{
                                 changeEditTextColor(0,v.listView_game[itemLigneSelected].editText_i_5)
                                 holderAndSaveText()
