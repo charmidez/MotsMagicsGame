@@ -43,6 +43,7 @@ class GameFragment : Fragment() {
         var itemList_data : ArrayList<Data>
         var wrong : Int = R.drawable.edittext_wrong_letter
         var correct : Int = R.drawable.edittext_correct_letter
+        var ok : Int
 
         //initialize
         itemList_data = ArrayList(arrayListOf(Data("","","","","")))
