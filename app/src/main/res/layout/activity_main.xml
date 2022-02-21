@@ -6,13 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar_layout"
+        android:backgroundTint="@color/grey_fifty_shade"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        app:elevation="0dp"
+        android:padding="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/textView_title_appbar"
+            android:text="Game"
+            android:gravity="center"
+            android:fontFamily="@font/source_sans_pro_bold"
+            android:textSize="@dimen/text_title_size"
+            android:textColor="@color/white_baby_power"
+            android:padding="@dimen/padding_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:id="@+id/framelayout_fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomnavigationview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBar_layout" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomnavigationview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemHorizontalTranslationEnabled="false"
+        android:background="@color/white_baby_power"
+        app:menu="@menu/menu"
+        app:labelVisibilityMode="unlabeled"
+        app:itemIconTint="@drawable/item_bottom_nav_color"
+        app:itemTextColor="@drawable/item_bottom_nav_color"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

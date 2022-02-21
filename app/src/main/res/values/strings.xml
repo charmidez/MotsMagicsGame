@@ -1,3 +1,13 @@
 <resources>
+    <!--Global String Ressources-->
     <string name="app_name">Mots Magics</string>
+    <string name="app_creator">aMango Apps &amp; Games</string>
+
+    <!--Menu And Fragment Title String Ressources-->
+    <string name="menu_item_1">Jeu</string>
+    <string name="menu_item_2">Reglages</string>
+
+    <string name="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+
+    <string name="submit">Soumettre</string>
 </resources>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/editText_margin"
+        android:paddingBottom="@dimen/editText_margin"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/editText_i_1"
+            android:layout_width="@dimen/editText_dimen"
+            android:layout_height="@dimen/editText_dimen"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:layout_margin="@dimen/editText_margin"
+            android:textSize="@dimen/text_edittext_size"
+            android:cursorVisible="false"
+            android:inputType="text|textNoSuggestions"
+            android:maxLength="1"
+            android:textStyle="bold"
+            android:lines="1"
+            android:maxLines="1"
+            android:ems="1"
+            android:maxEms="1"
+            android:background="@drawable/edittext_border"/>
+
+        <EditText
+            android:id="@+id/editText_i_2"
+            android:layout_width="@dimen/editText_dimen"
+            android:layout_height="@dimen/editText_dimen"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:layout_margin="@dimen/editText_margin"
+            android:textSize="@dimen/text_edittext_size"
+            android:cursorVisible="false"
+            android:inputType="text|textNoSuggestions"
+            android:maxLength="1"
+            android:textStyle="bold"
+            android:lines="1"
+            android:maxLines="1"
+            android:ems="1"
+            android:maxEms="1"
+            android:background="@drawable/edittext_border"/>
+
+        <EditText
+            android:id="@+id/editText_i_3"
+            android:layout_width="@dimen/editText_dimen"
+            android:layout_height="@dimen/editText_dimen"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:layout_margin="@dimen/editText_margin"
+            android:textSize="@dimen/text_edittext_size"
+            android:cursorVisible="false"
+            android:inputType="text|textNoSuggestions"
+            android:maxLength="1"
+            android:textStyle="bold"
+            android:lines="1"
+            android:maxLines="1"
+            android:ems="1"
+            android:maxEms="1"
+            android:background="@drawable/edittext_border"/>
+
+        <EditText
+            android:id="@+id/editText_i_4"
+            android:layout_width="@dimen/editText_dimen"
+            android:layout_height="@dimen/editText_dimen"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:layout_margin="@dimen/editText_margin"
+            android:textSize="@dimen/text_edittext_size"
+            android:cursorVisible="false"
+            android:inputType="text|textNoSuggestions"
+            android:maxLength="1"
+            android:textStyle="bold"
+            android:lines="1"
+            android:maxLines="1"
+            android:ems="1"
+            android:maxEms="1"
+            android:background="@drawable/edittext_border"/>
+
+        <EditText
+            android:id="@+id/editText_i_5"
+            android:layout_width="@dimen/editText_dimen"
+            android:layout_height="@dimen/editText_dimen"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:layout_margin="@dimen/editText_margin"
+            android:textSize="@dimen/text_edittext_size"
+            android:cursorVisible="false"
+            android:inputType="text|textNoSuggestions"
+            android:maxLength="1"
+            android:textStyle="bold"
+            android:lines="1"
+            android:maxLines="1"
+            android:ems="1"
+            android:maxEms="1"
+            android:background="@drawable/edittext_border"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
