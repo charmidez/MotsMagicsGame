@@ -1,6 +1,7 @@
 package com.amango.motsmagics.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,25 +18,18 @@ import kotlinx.android.synthetic.main.item_mot_magic.view.*
 
 
 class GameFragment : Fragment() {
-    private lateinit var firstLettre : String
-    private lateinit var secondLettre : String
-    private lateinit var threeLettre : String
-    private lateinit var fourLettre : String
-    private lateinit var fiveLettre : String
-
-    private lateinit var allWordToFind : ArrayList<String>
-    private lateinit  var getWord : String
-    private lateinit var wordToFind : String
-
-    fun decomposeStep(word : String ) : ArrayList<Char>{
-        var wordTab = ArrayList<Char>()
-        for (i in 0..word.length  - 1 ) {
-            wordTab.add(word[i])
-        }
-        return wordTab
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        var firstLettre  = ""
+        var secondLettre  = ""
+        var threeLettre  = ""
+        var fourLettre  = ""
+        var fiveLettre  =""
+
+        var allWordToFind : ArrayList<String> = arrayListOf("")
+        var getWord  = ""
+        var wordToFind  = ""
+
         val v = inflater.inflate(R.layout.fragment_game, container, false)
         var myAdapter : MyAdapter
         var itemLigneSelected : Int
@@ -51,7 +45,9 @@ class GameFragment : Fragment() {
         allWordToFind = arrayListOf("")
 
         var getWordToFindFromFireBase = fun(){
-            allWordToFind = DataWords().allWord
+            allWordToFind = arrayListOf("kokou", "kodjo", "voffi")
+            allWordToFind.add(0,"kokot")
+            //allWordToFind = DataWords().allWord
             wordToFind = allWordToFind[itemWordSelected]
         }
         getWordToFindFromFireBase()
@@ -73,26 +69,20 @@ class GameFragment : Fragment() {
             itemLigneSelected++
         }
 
-        var getWordTab = decomposeStep(getWord)
-        var wordToFindTab = decomposeStep(wordToFind)
-
-        var changeEditTextColor = fun( i : Int, edittext : EditText){
+        var changeEditTextColor = fun(edittext : EditText){
             // Wifi code canal box 9720372497
-            for (i in 0.. wordToFindTab.size -1){
-                if (wordToFindTab[i] == getWordTab[i]){
+            for (i in 0.. wordToFind.length -1){
+                if (wordToFind[i] == getWord[i]){
+                    //le carré devient vert
                     edittext.setBackgroundResource(correct)
-                } else if (wordToFindTab[i] != getWordTab[i]) {
-                    for (j in 0 .. wordToFindTab.size -1){
-                        if(wordToFindTab[i]==getWordTab[j]){
-                            edittext.setBackgroundResource(wrong)
+                } else if (wordToFind[i] != getWord[i]) {
+                    for (j in 0 .. wordToFind.length -1){
+                        if(wordToFind[i]==getWord[j]){
+                            //Le carré devient rouge
+                            //edittext.setBackgroundResource(wrong)
                         }
                     }
                 }
-            }
-            if (getWordTab[i] == wordToFindTab[i]){
-                edittext.setBackgroundResource(correct)
-            } else {
-                edittext.setBackgroundResource(wrong)
             }
         }
 
@@ -101,27 +91,27 @@ class GameFragment : Fragment() {
                 duration = 700
                 rotationXBy(360f)
             }.withEndAction{
-                changeEditTextColor(0,v.listView_game[itemLigneSelected].editText_i_1)
+                changeEditTextColor(v.listView_game[itemLigneSelected].editText_i_1)
                 v.listView_game[itemLigneSelected].editText_i_2.animate().apply {
                     duration = 700
                     rotationXBy(360f)
                 }.withEndAction{
-                    changeEditTextColor(0,v.listView_game[itemLigneSelected].editText_i_2)
+                    changeEditTextColor(v.listView_game[itemLigneSelected].editText_i_2)
                     v.listView_game[itemLigneSelected].editText_i_3.animate().apply {
                         duration = 700
                         rotationXBy(360f)
                     }.withEndAction {
-                        changeEditTextColor(0,v.listView_game[itemLigneSelected].editText_i_3)
+                        changeEditTextColor(v.listView_game[itemLigneSelected].editText_i_3)
                         v.listView_game[itemLigneSelected].editText_i_4.animate().apply {
                             duration = 700
                             rotationXBy(360f)
                         }.withEndAction {
-                            changeEditTextColor(0,v.listView_game[itemLigneSelected].editText_i_4)
+                            changeEditTextColor(v.listView_game[itemLigneSelected].editText_i_4)
                             v.listView_game[itemLigneSelected].editText_i_5.animate().apply {
                                 duration = 700
                                 rotationXBy(360f)
                             }.withEndAction{
-                                changeEditTextColor(0,v.listView_game[itemLigneSelected].editText_i_5)
+                                changeEditTextColor(v.listView_game[itemLigneSelected].editText_i_5)
                                 holderAndSaveText()
                             }
                         }
@@ -155,7 +145,7 @@ class GameFragment : Fragment() {
                      chargeEditTextAnimation()
                  }
             } else {
-                 chargeEditTextAnimation()
+                 //chargeEditTextAnimation()
                  //nouvelle fonction pour dire congrat
                  itemWordSelected++
             }
@@ -166,6 +156,10 @@ class GameFragment : Fragment() {
 
         v.button_submit.setOnClickListener{
             getValueEditText()
+            Log.i("getWord","$getWord")
+            Log.i("wordToFind","$wordToFind")
+            //Log.i("getWordTab","${getWordTab[1]}")
+            //Log.i("wordToFindTab","${wordToFindTab[1]}")
             if (firstLettre.isEmpty() || secondLettre.isEmpty() || threeLettre.isEmpty() || fourLettre.isEmpty() || fiveLettre.isEmpty()) {
                 Toast.makeText(v.context,"Veuillez proposer un mot",Toast.LENGTH_LONG).show()
             } else{
